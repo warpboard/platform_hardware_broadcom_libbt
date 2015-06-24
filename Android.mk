@@ -31,6 +31,11 @@ include $(LOCAL_PATH)/vnd_buildcfg.mk
 
 include $(BUILD_SHARED_LIBRARY)
 
+ifeq ($(TARGET_PRODUCT), warpboard)
+    LIBBT_PATH := $(LOCAL_PATH)
+    include $(LIBBT_PATH)/conf/warp/Android.mk
+    include $(LIBBT_PATH)/firmware/warp/Android.mk
+endif
 ifeq ($(TARGET_PRODUCT), full_maguro)
     include $(LOCAL_PATH)/conf/samsung/maguro/Android.mk
 endif
